@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: mission
+  datasource:
+    url: jdbc:postgresql://localhost:5432/research_db
+    username: admin
+    password: adminpassword
+  ai:
+    ollama:
+      base-url: http://localhost:11435
+      chat:
+        options:
+          model: qwen3:8b
+          temperature: 0.7
+      embedding:
+        options:
+          model: qwen3-embedding:0.6b
+    vectorstore:
+      pgvector:
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        initialize-schema: true # Automatically creates the vector extension and tables on startup
